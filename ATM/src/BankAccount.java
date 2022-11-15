@@ -1,11 +1,13 @@
 public class BankAccount {
 
     String name;
+    String password;
     double money;
     TypeAccount typeAccount;
 
-    public BankAccount(String name, double money, TypeAccount typeAccount) {
+    public BankAccount(String name, String password, double money, TypeAccount typeAccount) {
         this.name = name;
+        this.password = password;
         this.money = money;
         this.typeAccount = typeAccount;
     }
@@ -21,6 +23,13 @@ public class BankAccount {
         else {
             throw new IllegalArgumentException("no money sufficient");
         }
+    }
+
+    boolean checkPassword(String password) {
+        if (password.equals(this.password)) {
+            return true;
+        }
+        return false;
     }
 
     public String printData() {
