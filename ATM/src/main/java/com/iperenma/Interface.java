@@ -14,7 +14,8 @@ public class Interface {
             System.out.println("3) withdraw money");
             System.out.println("4) check last movements");
             System.out.println("5) Register bank account");
-            System.out.println("6) exit");
+            System.out.println("6) Show agreements");
+            System.out.println("7) exit");
             int option = scannerOption.nextInt();
             System.out.println("=========================");
 
@@ -24,7 +25,8 @@ public class Interface {
                 case 3 -> ATM.withdraw();
                 case 4 -> ATM.lastMovements();
                 case 5 -> ATM.registerBankAccount();
-                case 6 -> {
+                case 6 -> ATM.showAgree();
+                case 7 -> {
                     break loop;
                 }
             }

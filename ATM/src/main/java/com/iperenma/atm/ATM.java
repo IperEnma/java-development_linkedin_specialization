@@ -52,6 +52,7 @@ public class ATM {
         }
         System.out.println("No exists account");
     }
+
     public static void withdraw() {
         System.out.println("Enter the owner's name");
         String name = scannerName.nextLine();
@@ -78,6 +79,7 @@ public class ATM {
         }
         System.out.println("No exists account");
     }
+
     public static void lastMovements() {
         System.out.println("Enter the owner's name");
         String name = scannerName.nextLine();
@@ -122,5 +124,23 @@ public class ATM {
                 listAccount.add(account);
             }
         }
+    }
+
+    public static void showAgree() {
+        System.out.println("Enter the owner's name");
+        String name = scannerName.nextLine();
+        for (BankAccount bankAccount : listAccount) {
+            if (name.equals(bankAccount.getName())) {
+                System.out.println("Insert password");
+                String password = scannerPassword.nextLine();
+                if (bankAccount.checkPassword(password)) {
+                    bankAccount.showAgree();
+                } else {
+                    System.out.println("Password incorrect");
+                }
+                return;
+            }
+        }
+        System.out.println("No exists account");
     }
 }

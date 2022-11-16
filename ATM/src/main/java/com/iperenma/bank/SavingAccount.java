@@ -1,6 +1,6 @@
 package com.iperenma.bank;
 
-public class SavingAccount extends BankAccount{
+public class SavingAccount extends BankAccount {
 
     private static final double COMISION = 10;
     public SavingAccount(String name, String password, double money) {
@@ -21,7 +21,7 @@ public class SavingAccount extends BankAccount{
     }
 
     @Override
-    public void informe() {
-        System.out.println("Acuerdos legales ...");
+    public void showAgree() {
+        System.out.println("agreements...");
     }
 }

@@ -2,7 +2,7 @@ package com.iperenma.bank;
 
 import java.util.ArrayList;
 
-public abstract class BankAccount {
+public abstract class BankAccount implements Agreements {
 
     protected String name;
     private final String password;
@@ -24,8 +24,6 @@ public abstract class BankAccount {
     }
 
     public abstract void withdrawMoney(double money);
-
-    public abstract void informe();
 
     public boolean checkPassword(String password) {
         return password.equals(this.password);
