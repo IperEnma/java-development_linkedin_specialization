@@ -1,6 +1,9 @@
+package com.iperenma;
+import com.iperenma.atm.ATM;
+
 import java.util.Scanner;
 
-public class Interfaz {
+public class Interface {
 
     public static void main(String[] args) {
         Scanner scannerOption = new Scanner(System.in);
@@ -16,27 +19,12 @@ public class Interfaz {
             System.out.println("=========================");
 
             switch (option) {
-                case 1: {
-                    ATM.queryData();
-                    break;
-                }
-                case 2: {
-                    ATM.deposit();
-                    break;
-                }
-                case 3: {
-                    ATM.withdraw();
-                    break;
-                }
-                case 4: {
-                    ATM.lastMovements();
-                    break;
-                }
-                case 5: {
-                    ATM.registerBankAccount();
-                    break;
-                }
-                case 6: {
+                case 1 -> ATM.queryData();
+                case 2 -> ATM.deposit();
+                case 3 -> ATM.withdraw();
+                case 4 -> ATM.lastMovements();
+                case 5 -> ATM.registerBankAccount();
+                case 6 -> {
                     break loop;
                 }
             }

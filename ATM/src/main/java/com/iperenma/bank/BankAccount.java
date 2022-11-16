@@ -1,14 +1,16 @@
+package com.iperenma.bank;
+
 import java.util.ArrayList;
 
-public class BankAccount {
+public abstract class BankAccount {
 
-    String name;
-    String password;
-    double money;
-    TypeAccount typeAccount;
-    ArrayList<String> movements = new ArrayList<>();
+    protected String name;
+    private final String password;
+    protected double money;
+    protected TypeAccount typeAccount;
+    protected final ArrayList<String> movements = new ArrayList<>();
 
-    public BankAccount(String name, String password, double money, TypeAccount typeAccount) {
+    public BankAccount(String name, String password, double money) {
         this.name = name;
         this.password = password;
         this.typeAccount = typeAccount;
@@ -21,18 +23,11 @@ public class BankAccount {
         movements.add(movement);
     }
 
-    public void withdrawMoney(double money) {
-        if (this.money - money >= 0) {
-            this.money = this.money - money;
-            String movement = "Withdraw of " + String.format("%.2f", money) + " dollars";
-            movements.add(movement);
-        }
-        else {
-            throw new IllegalArgumentException("no money sufficient");
-        }
-    }
+    public abstract void withdrawMoney(double money);
 
-    boolean checkPassword(String password) {
+    public abstract void informe();
+
+    public boolean checkPassword(String password) {
         return password.equals(this.password);
     }
 
