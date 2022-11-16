@@ -9,7 +9,7 @@ public class Interfaz {
             System.out.println("1) query data");
             System.out.println("2) insert money");
             System.out.println("3) withdraw money");
-            System.out.println("4) check last 10 movements (no work)");
+            System.out.println("4) check last movements");
             System.out.println("5) Register bank account");
             System.out.println("6) exit");
             int option = scannerOption.nextInt();

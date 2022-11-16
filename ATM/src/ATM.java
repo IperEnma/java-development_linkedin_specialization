@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class ATM {
 
 
-    Scanner scannerOption = new Scanner(System.in);
+    static Scanner scannerMovements = new Scanner(System.in);
     static Scanner scannerName = new Scanner(System.in);
     static Scanner scannerMoney = new Scanner(System.in);
     static Scanner scannerType = new Scanner(System.in);
@@ -79,6 +79,27 @@ public class ATM {
         System.out.println("No exists account");
     }
     public static void lastMovements() {
+        System.out.println("Enter the owner's name");
+        String name = scannerName.nextLine();
+        for (int i = 0; i < listAccount.size(); i++) {
+            if (name.equals(listAccount.get(i).getName())) {
+                System.out.println("Insert password");
+                String password = scannerPassword.nextLine();
+                if (listAccount.get(i).checkPassword(password)) {
+                    System.out.println("Enter the number of moves you want to display");
+                    int number = scannerMovements.nextInt();
+                    ArrayList<String> movements = listAccount.get(i).getMovements(number);
+                    for (int j = 0; j < movements.size(); j++) {
+                        System.out.println(String.format("%d", j + 1) + ") " + movements.get(j));
+                    }
+                }
+                else {
+                    System.out.println("Password incorrect");
+                }
+                return;
+            }
+        }
+        System.out.println("No exists account");
     }
 
     public static void registerBankAccount() {
